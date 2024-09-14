@@ -62,3 +62,19 @@ def modify_post(username):
         print("Post modified successfully!")
     else:
         print("Invalid post number.")
+
+        #Deleting a Blog Post:
+def delete_post(username):
+    if not blogs[username]:
+        print("No posts available to delete.")
+        return
+
+    for idx, post in enumerate(blogs[username], 1):
+        print(f"{idx}. {post['title']}")
+
+    post_num = int(input("Enter post number to delete: ")) - 1
+    if 0 <= post_num < len(blogs[username]):
+        removed_post = blogs[username].pop(post_num)
+        print(f"Post '{removed_post['title']}' deleted!")
+    else:
+        print("Invalid post number.")
