@@ -38,3 +38,10 @@ def login():
     else:
         print("Incorrect password!")
         return None
+    
+    #Creating a Blog Post:
+def create_post(username):
+    title = input("Enter post title: ")
+    content = input("Enter post content: ")
+    blogs[username].append({'title': title, 'content': content})
+    print(f"Post '{title}' created!")
