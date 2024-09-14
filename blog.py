@@ -99,3 +99,24 @@ def blog_menu(username):
             break
         else:
             print("Invalid option.")
+
+
+            #Main Program Loop:
+def main():
+    while True:
+        print("\n1. Register\n2. Login\n3. Exit")
+        choice = input("Select an option: ")
+        if choice == '1':
+            register()
+        elif choice == '2':
+            username = login()
+            if username:
+                blog_menu(username)
+        elif choice == '3':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid option.")
+
+if __name__ == "__main__":
+    main()
