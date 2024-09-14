@@ -43,3 +43,22 @@ def create_post(username):
     content = input("Enter post content: ")
     blogs[username].append({'title': title, 'content': content})
     print(f"Post '{title}' created!")
+
+
+#Modifying a Blog Post:
+def modify_post(username):
+    if not blogs[username]:
+        print("No posts available to modify.")
+        return
+
+    for idx, post in enumerate(blogs[username], 1):
+        print(f"{idx}. {post['title']}")
+
+    post_num = int(input("Enter post number to modify: ")) - 1
+    if 0 <= post_num < len(blogs[username]):
+        new_title = input("Enter new title: ")
+        new_content = input("Enter new content: ")
+        blogs[username][post_num] = {'title': new_title, 'content': new_content}
+        print("Post modified successfully!")
+    else:
+        print("Invalid post number.")
