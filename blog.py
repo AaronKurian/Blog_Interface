@@ -81,3 +81,21 @@ def delete_post(username):
         print(f"Post '{removed_post['title']}' deleted!")
     else:
         print("Invalid post number.")
+
+
+        #Blog Management Menu:
+def blog_menu(username):
+    while True:
+        print("\n1. Create Post\n2. Modify Post\n3. Delete Post\n4. Logout")
+        choice = input("Select an option: ")
+        if choice == '1':
+            create_post(username)
+        elif choice == '2':
+            modify_post(username)
+        elif choice == '3':
+            delete_post(username)
+        elif choice == '4':
+            print("Logging out...")
+            break
+        else:
+            print("Invalid option.")
