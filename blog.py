@@ -33,7 +33,7 @@ def login():
 
     password = getpass.getpass("Enter Password: ")
     if bcrypt.checkpw(password.encode(), users[username]):
-        print(f"Welcome, {username}!")
+        print(f"\nWelcome, {username}!")
         return username
     else:
         print("Incorrect Password!")
@@ -45,7 +45,7 @@ def create_post(username):
     title = input("Enter Post Title: ")
     content = input("Enter Post Content: ")
     blogs[username].append({'title': title, 'content': content})
-    print(f"Post '{title}' Created!")
+    print(f"Post '{title}' Created Successfully!")
 
 
 #Modifying a Blog Post
@@ -79,7 +79,7 @@ def delete_post(username):
     post_num = int(input("Enter Post Number to Delete: ")) - 1
     if 0 <= post_num < len(blogs[username]):
         removed_post = blogs[username].pop(post_num)
-        print(f"Post '{removed_post['title']}' deleted!")
+        print(f"Post '{removed_post['title']}' Deleted Successfully!")
     else:
         print("Invalid Post Number.")
 
