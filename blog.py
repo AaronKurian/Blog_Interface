@@ -2,14 +2,14 @@ import bcrypt
 import getpass
 
 
-# Store users and their encrypted passwords (in-memory)
+#Store users and their encrypted passwords (in-memory)
 users = {}
 
 # Store blog posts for each user
 blogs = {}
 
-#User Registration:
 
+#User Registration
 def register():
     username = input("Enter a new username: ")
     if username in users:
@@ -24,7 +24,7 @@ def register():
     print(f"User '{username}' registered successfully!")
 
 
-    #User Login:
+#User Login
 def login():
     username = input("Enter username: ")
     if username not in users:
@@ -39,7 +39,8 @@ def login():
         print("Incorrect password!")
         return None
     
-    #Creating a Blog Post:
+
+#Creating a Blog Post
 def create_post(username):
     title = input("Enter post title: ")
     content = input("Enter post content: ")
@@ -47,7 +48,7 @@ def create_post(username):
     print(f"Post '{title}' created!")
 
 
-    #Modifying a Blog Post:
+#Modifying a Blog Post
 def modify_post(username):
     if not blogs[username]:
         print("No posts available to modify.")
@@ -66,7 +67,7 @@ def modify_post(username):
         print("Invalid post number.")
 
 
-#Deleting a Blog Post:
+#Deleting a Blog Post
 def delete_post(username):
     if not blogs[username]:
         print("No posts available to delete.")
@@ -83,7 +84,7 @@ def delete_post(username):
         print("Invalid post number.")
 
 
-        #Blog Management Menu:
+#Blog Management Menu
 def blog_menu(username):
     while True:
         print("\n1. Create Post\n2. Modify Post\n3. Delete Post\n4. Logout")
@@ -101,7 +102,7 @@ def blog_menu(username):
             print("Invalid option.")
 
 
-            #Main Program Loop:
+#Main Program Loop
 def main():
     while True:
         print("\n1. Register\n2. Login\n3. Exit")
