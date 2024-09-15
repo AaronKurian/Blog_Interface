@@ -97,6 +97,8 @@ def blog_menu(username):
             delete_post(username)
         elif choice == '4':
             print("\nLogging Out...")
+            print("Logged Out Successfully :)")
+
             break
         else:
             print("\nInvalid Option.")
@@ -115,6 +117,8 @@ def main():
                 blog_menu(username)
         elif choice == '3':
             print("\nExiting...")
+            print("Thanks for visiting! :) \n")
+
             break
         else:
             print("\nInvalid Option.")
