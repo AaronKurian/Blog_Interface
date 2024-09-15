@@ -117,7 +117,7 @@ def main():
                 blog_menu(username)
         elif choice == '3':
             print("\nExiting...")
-            print("Thanks for visiting! :) \n")
+            print("Thanks for Visiting! :) \n")
 
             break
         else:
