@@ -40,7 +40,6 @@ This is a terminal-based blog interface written in Python. It allows multiple us
 
 - **Python**: Core programming language.
 - **bcrypt**: For password encryption and decryption.
-- **File System Storage**: Blog posts and user credentials are stored in local files.
 
 ## Security Features
 
