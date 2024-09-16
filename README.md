@@ -14,7 +14,7 @@ This is a terminal-based blog interface written in Python. It allows multiple us
 
 1. Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/your-username/Blog_Interface.git
+    git clone https://github.com/AaronKurian/Blog_Interface.git
     cd Blog_Interface
     ```
 
