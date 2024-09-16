@@ -1,16 +1,14 @@
 import bcrypt
 import getpass
 
-
-#To store users and their encrypted passwords (in-memory)
+# To store users and their encrypted passwords (in-memory)
 users = {}
 
-#To store blog posts for each user
+# To store blog posts for each user
 blogs = {}
 
 
-
-def register():
+def register_user():
     """Register a new user with a username and password."""
     username = input("\nEnter a New Username: ")
     if username in users:
@@ -25,8 +23,7 @@ def register():
     print(f"\nUser '{username}' Registered Successfully!")
 
 
-
-def login():
+def login_user():
     """Log in the user by verifying the password."""
     username = input("\nEnter Username: ")
     if username not in users:
@@ -40,7 +37,16 @@ def login():
     else:
         print("\nIncorrect Password!")
         return None
-    
+
+
+def list_posts(username):
+    """List all blog posts for a user."""
+    if not blogs[username]:
+        print("\nNo Posts Available.")
+        return False
+    for idx, post in enumerate(blogs[username], 1):
+        print(f"{idx}. {post['title']}")
+    return True
 
 
 def create_post(username):
@@ -51,17 +57,17 @@ def create_post(username):
     print(f"\nPost '{title}' Created Successfully!")
 
 
-#Modifying a Blog Post
 def modify_post(username):
     """Modify an existing blog post."""
-    if not blogs[username]:
-        print("\nNo Posts Available To Modify.")
+    if not list_posts(username):
         return
 
-    for idx, post in enumerate(blogs[username], 1):
-        print(f"{idx}. {post['title']}")
+    try:
+        post_num = int(input("\nEnter Post Number To Modify: ")) - 1
+    except ValueError:
+        print("\nInvalid Input. Please Enter a Number.")
+        return
 
-    post_num = int(input("\nEnter Post Number To Modify: ")) - 1
     if 0 <= post_num < len(blogs[username]):
         new_title = input("\nEnter New Title: ")
         new_content = input("\nEnter New Content: ")
@@ -71,23 +77,22 @@ def modify_post(username):
         print("\nInvalid Post Number.")
 
 
-
 def delete_post(username):
     """Delete an existing blog post."""
-    if not blogs[username]:
-        print("\nNo Posts Available to Delete.")
+    if not list_posts(username):
         return
 
-    for idx, post in enumerate(blogs[username], 1):
-        print(f"{idx}. {post['title']}")
+    try:
+        post_num = int(input("\nEnter Post Number to Delete: ")) - 1
+    except ValueError:
+        print("\nInvalid Input. Please Enter a Number.")
+        return
 
-    post_num = int(input("\nEnter Post Number to Delete: ")) - 1
     if 0 <= post_num < len(blogs[username]):
         removed_post = blogs[username].pop(post_num)
         print(f"\nPost '{removed_post['title']}' Deleted Successfully!")
     else:
         print("\nInvalid Post Number.")
-
 
 
 def blog_menu(username):
@@ -104,11 +109,9 @@ def blog_menu(username):
         elif choice == '4':
             print("\nLogging Out...")
             print("Logged Out Successfully :)")
-
             break
         else:
             print("\nInvalid Option.")
-
 
 
 def main():
@@ -117,18 +120,18 @@ def main():
         print("\n1. Register\n2. Login\n3. Exit")
         choice = input("\nSelect an Option: ")
         if choice == '1':
-            register()
+            register_user()
         elif choice == '2':
-            username = login()
+            username = login_user()
             if username:
                 blog_menu(username)
         elif choice == '3':
             print("\nExiting...")
             print("Thanks for Visiting! :) \n")
-
             break
         else:
             print("\nInvalid Option.")
+
 
 if __name__ == "__main__":
     main()
