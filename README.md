@@ -49,7 +49,7 @@ This is a terminal-based blog interface written in Python. It allows multiple us
 ## Future Improvements
 
 - Add a graphical user interface (GUI).
-- Implement a database (such as SQLite) for better data management.
+- Implement a database (such as MongoDB) for more flexible data management and scalability.
 - Enable comments on blog posts.
 
 ## License
