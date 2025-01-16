@@ -25,7 +25,7 @@ This is a terminal-based blog interface written in Python. It allows multiple us
 
 3. Run the Python script:
     ```bash
-    python blog.py
+    python3 main.py
     ```
 
 ## Usage
